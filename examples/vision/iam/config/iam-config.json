@@ -1,0 +1,282 @@
+{
+    "compartments_configuration": {
+        "enable_delete": "true",
+        "compartments": {
+            "CMP-NETWORK-HUB-01": {
+                "name": "cmp-network-hub-01",
+                "description": "Shared Network Hub Compartment"
+            },
+            "CMP-SECURITY-01": {
+                "name": "cmp-security-01",
+                "description": "Shared Security Compartment"
+            },
+            "CMP-P-01": {
+                "name": "cmp-p-01",
+                "description": "Prod Shared Compartment",
+                "children": {
+                    "CMP-P-NETWORK-01": {
+                        "name": "cmp-p-network-01",
+                        "description": "Prod Shared network"
+                    },
+                    "CMP-P-PLATFORM-01": {
+                        "name": "cmp-p-platform-01",
+                        "description": "Prod Platform Shared Compartment",
+                        "children": {
+                            "CMP-P-PLATFORM-EBS": {
+                                "name": "cmp-p-platform-ebs",
+                                "description": "Prod Platform EBS Compartment",
+                                "children": {
+                                    "CMP-P-PLATFORM-EBS-LB-01": {
+                                        "name": "cmp-p-platform-ebs-lb-01",
+                                        "description": "Prod EBS  load balancer compartment"
+                                    },
+                                    "CMP-P-PLATFORM-EBS-APP-01": {
+                                        "name": "cmp-p-platform-ebs-app-01",
+                                        "description": "Prod EBS  Apps compartment"
+                                    },
+                                    "CMP-P-PLATFORM-EBS-DBS-01": {
+                                        "name": "cmp-p-platform-ebs-dbs-01",
+                                        "description": "Prod EBS  databases compartment"
+                                    },
+                                    "CMP-P-PLATFORM-EBS-INFRA-01": {
+                                        "name": "cmp-p-platform-ebs-infra-01",
+                                        "description": "Prod EBS  infra compartment"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "CMP-P-PROJECT-01": {
+                        "name": "cmp-p-project-01",
+                        "description": "Prod Shared Projects Compartment"
+                    },
+                    "CMP-P-SECURITY-01": {
+                        "name": "cmp-p-security-01",
+                        "description": "Prod Shared Security Compartment"
+                    }
+                }
+            },
+            "CMP-NP-01": {
+                "name": "cmp-np-01",
+                "description": "Nonprod shared compartment",
+                "children": {
+                    "CMP-NP-NETWORK-01": {
+                        "name": "cmp-np-network-01",
+                        "description": "Nonprod Shared network"
+                    },
+                    "CMP-NP-PLATFORM-01": {
+                        "name": "cmp-np-platform-01",
+                        "description": "Nonprod Platform Shared Compartment",
+                        "children": {
+                            "CMP-NP-PLATFORM-EBS-01": {
+                                "name": "cmp-np-platform-ebs-01",
+                                "description": "Nonprod Platform EBS Compartment",
+                                "children": {
+                                    "CMP-NP-PLATFORM-EBS-LB-01": {
+                                        "name": "cmp-np-platform-ebs-lb-01",
+                                        "description": "NonProd EBS  load balancer compartment"
+                                    },
+                                    "CMP-NP-PLATFORM-EBS-APP-01": {
+                                        "name": "cmp-np-platform-ebs-app-01",
+                                        "description": "NonProd EBS  Apps compartment"
+                                    },
+                                    "CMP-NP-PLATFORM-EBS-DBS-01": {
+                                        "name": "cmp-np-platform-ebs-dbs-01",
+                                        "description": "NonProd EBS  databases compartment"
+                                    },
+                                    "CMP-NP-PLATFORM-EBS-INFRA-01": {
+                                        "name": "cmp-np-platform-ebs-infra-01",
+                                        "description": "NonProd EBS  infra compartment"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "CMP-NP-PROJECT-01": {
+                        "name": "cmp-np-project-01",
+                        "description": "Nonprod Shared Projects Compartment"
+                    },
+                    "CMP-NP-SECURITY-01": {
+                        "name": "cmp-np-security-01",
+                        "description": "Nonprod Shared Security Compartment"
+                    }
+                }
+            },
+            "CMP-PLATFORM-01": {
+                "name": "cmp-platform-01",
+                "description": "EBS Migration compartment",
+                "children": {
+                    "CMP-EBSCM-01": {
+                        "name": "cmp-ebscm-01",
+                        "description": "EBS Migration compartment"
+                    }
+                }
+            }
+        }
+    },
+    "groups_configuration": {
+        "groups": {
+            "GRP-NETWORK-ADMINS": {
+                "name": "grp-network-admins",
+                "description": "Tenancy global and shared network operations group."
+            },
+            "GRP-IAM-ADMINS": {
+                "name": "grp-iam-admins",
+                "description": "Tenancy global Identity and access management administrator group."
+            },
+            "GRP-CREDENTIAL-ADMINS": {
+                "name": "grp-credential-admins",
+                "description": "Tenancy global credential administrator group."
+            },
+            "GRP-ANNOUNCEMENT-READERS": {
+                "name": "grp-announcement-readers",
+                "description": "Tenancy global readers of OCI monitoring information group."
+            },
+            "GRP-COST-ADMINS": {
+                "name": "grp-cost-admins",
+                "description": "Tenancy global cost control group."
+            },
+            "GRP-AUDITORS": {
+                "name": "grp-auditors",
+                "description": "Tenancy global read access group(for security auditing or health checks)."
+            },
+            "GRP-SECURITY-ADMINS": {
+                "name": "grp-security-admins",
+                "description": "Tenancy global and shared security operation group."
+            }
+        }
+    },
+    "policies_configuration": {
+        "enable_cis_benchmark_checks": "false",
+        "supplied_policies": {
+            "POL-NETWORK-ADMINS": {
+                "name": "pol-network-admins",
+                "description": "Ability to operate and manage all network resources, excluding the creation and deletion operations.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "Allow group grp-network-admins to manage virtual-network-family in tenancy"
+                ]
+            },
+            "POL-IAM-ADMINISTRATION": {
+                "name": "pol-iam-administration",
+                "description": "Ability to operate and manage all users.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow group grp-iam-admins to inspect users in tenancy",
+                    "allow group grp-iam-admins to manage users in tenancy where all {request.operation != 'ListApiKeys',request.operation != 'ListAuthTokens',request.operation != 'ListCustomerSecretKeys',request.operation != 'UploadApiKey',request.operation != 'DeleteApiKey',request.operation != 'UpdateAuthToken',request.operation != 'CreateAuthToken',request.operation != 'DeleteAuthToken',request.operation != 'CreateSecretKey',request.operation != 'UpdateCustomerSecretKey',request.operation != 'DeleteCustomerSecretKey'}",
+                    "allow group grp-iam-admins to inspect groups in tenancy",
+                    "allow group grp-iam-admins to manage policies in tenancy",
+                    "allow group grp-iam-admins to manage groups in tenancy where all {target.group.name != 'Administrators',target.group.name != 'grp-credential-admins'}",
+                    "allow group grp-iam-admins to inspect identity-providers in tenancy",
+                    "allow group grp-iam-admins to manage identity-providers in tenancy where any {request.operation = 'AddIdpGroupMapping', request.operation = 'DeleteIdpGroupMapping'}",
+                    "allow group grp-iam-admins to manage dynamic-groups in tenancy",
+                    "allow group grp-iam-admins to manage authentication-policies in tenancy",
+                    "allow group grp-iam-admins to manage network-sources in tenancy",
+                    "allow group grp-iam-admins to manage quota in tenancy",
+                    "allow group grp-iam-admins to use cloud-shell in tenancy",
+                    "allow group grp-iam-admins to manage tag-defaults in tenancy",
+                    "allow group grp-iam-admins to manage tag-namespaces in tenancy",
+                    "allow group grp-iam-admins to manage orm-jobs in tenancy",
+                    "allow group grp-iam-admins to manage orm-config-source-providers in tenancy"
+                ]
+            },
+            "POL-CREDENTIAL-ADMINISTRATION": {
+                "name": "pol-credential-administration",
+                "description": "ability  to manage user credentials.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow group grp-credential-admins to inspect users in tenancy",
+                    "allow group grp-credential-admins to inspect groups in tenancy",
+                    "allow group grp-credential-admins to manage users in tenancy where any {request.operation = 'ListApiKeys',request.operation = 'ListAuthTokens',request.operation = 'ListCustomerSecretKeys',request.operation = 'UploadApiKey',request.operation = 'DeleteApiKey',request.operation = 'UpdateAuthToken',request.operation = 'CreateAuthToken',request.operation = 'DeleteAuthToken',request.operation = 'CreateSecretKey',request.operation = 'UpdateCustomerSecretKey',request.operation = 'DeleteCustomerSecretKey',request.operation = 'UpdateUserCapabilities'}",
+                    "allow group grp-credential-admins to use cloud-shell in tenancy"
+                ]
+            },
+            "POL-ANNOUNCEMENT-READERS": {
+                "name": "pol-announcement-readers",
+                "description": "ability to read OCI announcements in the tenancy.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow group grp-announcement-readers to read announcements in tenancy",
+                    "allow group grp-announcement-readers to use cloud-shell in tenancy"
+                ]
+            },
+            "POL-COST-ADMINISTRATION": {
+                "name": "pol-cost-administration",
+                "description": "Ability manage all budget resources in the tenancy.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "define tenancy usage-report as ocid1.tenancy.oc1..aaaaaaaaned4fkpkisbwjlr56u7cj63lf3wffbilvqknstgtvzub7vhqkggq",
+                    "endorse group grp-cost-admins to read objects in tenancy usage-report",
+                    "allow group grp-cost-admins to manage usage-report in tenancy",
+                    "allow group grp-cost-admins to manage usage-budgets in tenancy"
+                ]
+            },
+            "POL-AUDITING": {
+                "name": "pol-auditing",
+                "description": "Ability  to read all the resources in the tenancy.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow group grp-auditors to inspect all-resources in tenancy",
+                    "allow group grp-auditors to read instances in tenancy",
+                    "allow group grp-auditors to read load-balancers in tenancy",
+                    "allow group grp-auditors to read buckets in tenancy",
+                    "allow group grp-auditors to read nat-gateways in tenancy",
+                    "allow group grp-auditors to read public-ips in tenancy",
+                    "allow group grp-auditors to read file-family in tenancy",
+                    "allow group grp-auditors to read instance-configurations in tenancy",
+                    "allow group grp-auditors to read network-security-groups in tenancy",
+                    "allow group grp-auditors to read resource-availability in tenancy",
+                    "allow group grp-auditors to read audit-events in tenancy",
+                    "allow group grp-auditors to read users in tenancy",
+                    "allow group grp-auditors to use cloud-shell in tenancy",
+                    "allow group grp-auditors to read vss-family in tenancy",
+                    "allow group grp-auditors to read usage-budgets in tenancy",
+                    "allow group grp-auditors to read usage-reports in tenancy",
+                    "allow group grp-auditors to read data-safe-family in tenancy",
+                    "allow group grp-auditors to read vaults in tenancy",
+                    "allow group grp-auditors to read keys in tenancy",
+                    "allow group grp-auditors to read tag-namespaces in tenancy",
+                    "allow group grp-auditors to read serviceconnectors in tenancy",
+                    "allow group grp-auditors to use ons-family in tenancy where any {request.operation!=/Create*/, request.operation!=/Update*/, request.operation!=/Delete*/, request.operation!=/Change*/}"
+                ]
+            },
+            "POL-SECURITY-ADMINS": {
+                "name": "pol-security-admins",
+                "description": "Ability to operate and manage the specified security resources and controls, excluding the creation and deletion operations.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow group grp-security-admins to inspect all-resources in tenancy",
+                    "Allow group grp-security-admins to manage policies in tenancy where all {request.permission in ('POLICY_UPDATE'), target.policy.name !='Tenant Admin Policy'}",
+                    "allow group grp-security-admins to manage domains in tenancy",
+                    "allow group grp-security-admins to read audit-events in tenancy",
+                    "allow group grp-security-admins to manage public-ips in Tenancy",
+                    "allow group grp-security-admins to manage network-security-groups in Tenancy",
+                    "allow group grp-security-admins to manage vcns in tenancy where ANY {request.operation != 'CreateNetworkSecurityGroup', request.operation != 'DeleteNetworkSecurityGroup'}",
+                    "Allow group grp-security-admins to manage log-groups in Tenancy",
+                    "Allow group grp-security-admins to manage log-content in Tenancy",
+                    "Allow group grp-security-admins to manage vaults in Tenancy",
+                    "Allow group grp-security-admins to manage keys in Tenancy",
+                    "Allow group grp-security-admins to manage secret-family in Tenancy",
+                    "Allow group grp-security-admins to manage cloud-guard-family in Tenancy"
+                ]
+            },
+            "POL-SERVICES": {
+                "name": "pol-services",
+                "description": "give the Cloud guard and vulnerability-scanning-service Ability to operate.",
+                "compartment_id": "TENANCY-ROOT",
+                "statements": [
+                    "allow service cloudguard to manage cloudevents-rules in tenancy where target.rule.type='managed'",
+                    "allow service cloudguard to read tenancies in tenancy",
+                    "allow service cloudguard to read all-resources in tenancy",
+                    "allow service cloudguard to use network-security-groups in tenancy",
+                    "allow service vulnerability-scanning-service to manage instances in tenancy",
+                    "allow service vulnerability-scanning-service to read compartments in tenancy",
+                    "allow service vulnerability-scanning-service to read repos in tenancy",
+                    "allow service vulnerability-scanning-service to read vnics in tenancy",
+                    "allow service vulnerability-scanning-service to read vnic-attachments in tenancy",
+                    "allow service osms to read instances in tenancy"
+                ]
+            }
+        }
+    }
+}

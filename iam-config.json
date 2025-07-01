@@ -1,0 +1,33 @@
+{
+    "compartments_configuration": {
+        "enable_delete": "true",
+        "compartments": {
+            "CMP-NETWORK-HUB-01": {
+                "name": "cmp-network-hub-01",
+                "description": "Shared Network Hub Compartment"
+            },
+            "CMP-SECURITY-01": {
+                "name": "cmp-security-01",
+                "description": "Shared Security Compartment"
+            },
+            "CMP-P-01": {
+                "name": "cmp-p-01",
+                "description": "Prod Shared Compartment"
+            },
+            "CMP-NP-01": {
+                "name": "cmp-np-01",
+                "description": "Nonprod shared compartment",
+                "children": {
+                    "CMP-NP-SECURITY-01": {
+                        "name": "cmp-np-security-01",
+                        "description": "Nonprod Shared Security Compartment"
+                    }
+                }
+            },
+            "CMP-PLATFORM-01": {
+                "name": "cmp-platform-01",
+                "description": "EBS Migration compartment"
+            }
+        }
+    }
+}
